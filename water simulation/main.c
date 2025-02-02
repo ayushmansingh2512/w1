@@ -4,11 +4,11 @@
 
 #define SCREEN_HEIGHT 800
 #define SCREEN_WIDTH 1200 
-#define COLOR_WHITE 0xfff 0x00000000fffff
-#define COLOR_BLACK
+#define COLOR_WHITE 0xFFFFFF
+#define COLOR_BLACK 0x000000
 #define COLOR_BLUE 0x34c3eb
 #define COLOR_DARK_BLUE 0x1a6199
-#define COLOR_GRAY 0x1f1f1f1f
+#define COLOR_GRAY 0x1f1f1f
 #define CELL_SIZE 10
 #define LINE_WIDTH 2
 #define COLUMNS (SCREEN_WIDTH / CELL_SIZE)
@@ -62,7 +62,6 @@ void draw_cell(SDL_Surface* surface, struct Cell cell) {
     }
 }
 
-
 // Draw the grid
 void draw_grid(SDL_Surface* surface) {
     for (int i = 0; i < COLUMNS; i++) {
@@ -101,7 +100,6 @@ void initialize_environment(struct Cell environment[ROWS][COLUMNS]) {
     }
 }
 
-// Simulate water dynamics
 // Simulate water dynamics
 void simulation_step(struct Cell environment[ROWS][COLUMNS]) {
     for (int i = ROWS - 1; i >= 0; i--) {
@@ -177,6 +175,7 @@ void simulation_step(struct Cell environment[ROWS][COLUMNS]) {
         }
     }
 }
+
 int main() {
     SDL_Init(SDL_INIT_VIDEO);
     SDL_Window* window = SDL_CreateWindow("Liquid Simulation", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
